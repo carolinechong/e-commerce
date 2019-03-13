@@ -1,0 +1,10 @@
+{% extends 'profiles/base.html' %}
+
+{% block script %}
+<form action="{% url 'confirmation' %}" method="POST">
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ publishKey }}" data-amount="500"
+        data-name="INCIPIENT SMILE" data-description="A Django charge" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto" data-shipping-address="True"></script>
+</form>
+{% endblock %}
